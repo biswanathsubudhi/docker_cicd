@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Code for Build using Maven') {
       steps {
-        echo ("Code for Build using Maven")
+        sh 'mvn clean package'
       }
     }
     stage('Code for Dcoker BUild') {
