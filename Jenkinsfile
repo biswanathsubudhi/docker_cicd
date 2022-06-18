@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Code for Dcoker BUild') {
       steps {
-        echo ("Code for Dcoker BUild")
+        sh "docker build . -t biswanathsubudhi/myapp"
       }
     }
     stage('Code for pushing the docker image to docker hub') {
