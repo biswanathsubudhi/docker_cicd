@@ -24,7 +24,9 @@ pipeline {
     }
     stage('push the doce to docker-dev server for deployment') {
       steps {
-        echo ("push the doce to docker-dev server for deployment")
+        sshagent(['docker_dev']) {
+        sh "ssh -o StrictHostKeyChecking=no ec2-user@13.235.115.206 docker run -itd -p 8080:8080 biswanathsubudhi/myapp"
+        }
       }
     }
   }
