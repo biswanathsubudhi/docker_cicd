@@ -16,7 +16,9 @@ pipeline {
     }
     stage('Code for pushing the docker image to docker hub') {
       steps {
-        echo ("Code for pushing the docker image to docker hub")
+        withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerpassword')]) {
+        // some block
+        }
       }
     }
     stage('push the doce to docker-dev server for deployment') {
