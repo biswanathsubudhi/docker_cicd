@@ -17,7 +17,8 @@ pipeline {
     stage('Code for pushing the docker image to docker hub') {
       steps {
         withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerpassword')]) {
-        // some block
+          sh "docker login -u biswanathsubudhi -p ${dockerpassword}"
+          sh "docker push biswanathsubudhi/myapp"
         }
       }
     }
