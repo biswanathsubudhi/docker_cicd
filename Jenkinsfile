@@ -25,7 +25,7 @@ pipeline {
     stage('push the doce to docker-dev server for deployment') {
       steps {
         sshagent(['docker_dev']) {
-        sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.37.5 docker container rm -f myweb"
+        sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.37.5 docker container rm -f myweb "
         sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.37.5 docker run -itd -p 8080:8080 --name myweb biswanathsubudhi/myapp"
         }
       }
