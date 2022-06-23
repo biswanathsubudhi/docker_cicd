@@ -34,6 +34,6 @@ pipeline {
 }  
 
 def latestCommitid() {
-def latestCommitid=sh returnStdout: true, script: 'git rev-parse –-short HEAD'
+def latestCommitid=sh returnStdout: true, script: 'git rev-parse --short HEAD'
 return latestCommitid
 }
